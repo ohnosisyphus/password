@@ -1,22 +1,13 @@
 password = 'a123456'
-
+remain_chance = 3 #剩餘機會
 while True:
-	user_password = input('請輸入密碼:')
-	if password == user_password:
-		print('登入成功！')
-		break
-	elif password != user_password:
-		print('密碼錯誤! 還有2次機會') 
-		user_password = input('請輸入密碼:')
-		if password != user_password:
-			print('密碼錯誤! 還有1次機會') 
-		elif password == user_password:
-			print('登入成功！') 
-			break
-		user_password = input('請輸入密碼:')
-		if password != user_password:
-			print('密碼錯誤! 程式結束')
-			break
-		elif password == user_password:
-			print('登入成功！') 
+	pwd = input('請輸入密碼: ')
+	if pwd == password:
+		print('登入成功!')
+		break #逃出迴圈
+	else:
+		remain_chance = remain_chance - 1
+		print('密碼錯誤! 還有', remain_chance, '次機會')
+		if remain_chance == 0:
+			print('密碼錯誤! 程序結束')
 			break
